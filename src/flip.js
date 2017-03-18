@@ -1,17 +1,29 @@
-// SECOND TRY:
-const R = require('ramda')
+// THIRD TRY
+// shouldn't this work?
+// Haskell notation should work...need to import CURRYING
+// can't even run the tests properly
 
-const flip = (fn) => (a) => (b) => {
-  // currently flip is broken:
-  let args = Array.prototype.slice.call(arguments, 0)
-  args[0] = b
-  arbs[1] = a
-  return fn.apply(this, args)
-}
+const flip = f => a => b =>
+  f(b, a)
 
 const divide = (a) => (b) => a / b
+const flippedDivide = flip(divide)
 
-console.log('this should read 1:\n', flip(divide(1)(2)))
+console.log(divide(1)(2))
+console.log(flippedDivide(1)(2))
+
+
+
+// SECOND TRY:
+//const R = require('ramda')
+
+//const flip = (fn) => (a) => (b) => {
+//  // currently flip is broken:
+//  let args = Array.prototype.slice.call(arguments, 0)
+//  args[0] = b
+//  arbs[1] = a
+//  return fn.apply(this, args)
+//}
 
 // FIRST TRY:
 //const R = require('ramda')
